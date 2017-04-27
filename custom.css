@@ -29,6 +29,15 @@ a:hover,a:focus {
 .large-icons {
 	font-size:22px;
 }
+.progress {
+	border-radius:0px;
+    box-shadow: none;
+    background: #eee;
+}
+.progress-bar {
+	box-shadow:none;
+	background: linear-gradient(to left, #28a5f5, #1e87f0);
+}
 .section.one {
 	    background: linear-gradient(to left, #28a5f5, #1e87f0);
 		color:#ffffff;
@@ -38,6 +47,11 @@ a:hover,a:focus {
 }
 .section.two {
 	background#d1d1d1;
+}
+.section.three label {
+	font-size:14px;
+	line-height:1em;
+	margin-bottom:5px;
 }
 .section.five {
 	background:#f1f1f1;
