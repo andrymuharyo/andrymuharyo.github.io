@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <link rel="stylesheet" href="./pages/jquery.fullpage.min.css">
+	<link rel="stylesheet" type="text/css" href="elasticgrid/css/elastic_grid.min.css" />
     <link rel="stylesheet" href="./custom.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -175,7 +176,9 @@
 				<div class="row">
 					<div class="col-sm-12 text-center">
 						<h2 class="headline">- Portfolio -<hr/></h2>
-						<p>See my <a target="_blank" href="https://www.linkedin.com/in/andrymuharyo">linkedin</a> for my portfolios</p>
+						<div class="overflow scrolls">
+							<div id="elastic_grid"></div>
+						</div>	
 					</div>
 				</div>
 			</div>
@@ -197,16 +200,234 @@
 	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./pages/jquery.fullpage.min.js"></script>
+    <script src="elasticgrid/js/modernizr.custom.js"></script>
+	<script src="elasticgrid/js/classie.js"></script>
+	<!--- uncompress-->
+
+	<script type="text/javascript" src="elasticgrid/js/jquery.elastislide.js"></script>
+	<script type="text/javascript" src="elasticgrid/js/jquery.hoverdir.js"></script>
+	<script type="text/javascript" src="elasticgrid/js/elastic_grid.js"></script>
+    <script src="nicescroll/dist/jquery.nicescroll.min.js" type="text/javascript"></script>
+	<script src="pages/jquery.fullpage.js"></script>
 	<script>
 		$(document).ready(function() {
+			//$(".scrolls").niceScroll(); 
 			$('#fullpage').fullpage({
 				anchors: ['home', 'introduction', 'skill', 'portfolio', 'contact']
 			});
 			$('.tooltips').tooltip();
 		});
+		// Portfolio
+		$(function(){
+        $("#elastic_grid").elastic_grid({
+            'showAllText' : 'All',
+            'filterEffect': 'popup', // moveup, scaleup, fallperspective, fly, flip, helix , popup
+            'hoverDirection': true,
+            'hoverDelay': 0,
+            'hoverInverse': false,
+            'expandingSpeed': 500,
+            'expandingHeight': 250,
+            'items' :
+            [
+
+                {
+                    'title'         : 'Ciputra World Surabaya',
+                    'description'   : 'Coding : Backend | PHP Native mysqli',
+                    'thumbnail'     : ['portfolio/cws1.png', 'portfolio/cws2.png'],
+                    'large'         : ['portfolio/cws1.png', 'portfolio/cws2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://ciputraworldsurabaya.com', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'PGASCOM',
+                    'description'   : 'Coding : Backend | Laravel Framework',
+                    'thumbnail'     : ['portfolio/pgn1.png', 'portfolio/pgn2.png'],
+                    'large'         : ['portfolio/pgn1.png', 'portfolio/pgn2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://www.pgascom.co.id', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'The Trans Hotel',
+                    'description'   : 'Coding : Frontend & Backend | Laravel Framework',
+                    'thumbnail'     : ['portfolio/tsh1.png', 'portfolio/tsh2.png'],
+                    'large'         : ['portfolio/tsh1.png', 'portfolio/tsh2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://thetranshotel.com', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Beakbug',
+                    'description'   : 'Coding : Backend | Laravel Framework | Faspay payment gateway',
+                    'thumbnail'     : ['portfolio/bbg1.png', 'portfolio/bbg2.png'],
+                    'large'         : ['portfolio/bbg1.png', 'portfolio/bbg2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://beakbug.com', 'new_window' : true }
+                    ],
+                    'tags'          : ['Ecommerce']
+                },
+                {
+                    'title'         : 'Easybuy',
+                    'description'   : 'Coding : Backend | Yii Framework | DOKU payment gateway ',
+                    'thumbnail'     : ['portfolio/esy1.png', 'portfolio/esy2.png'],
+                    'large'         : ['portfolio/esy1.png', 'portfolio/esy2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://easybuy.co.id', 'new_window' : true }
+                    ],
+                    'tags'          : ['Ecommerce']
+                },
+                {
+                    'title'         : 'Run.id',
+                    'description'   : 'Coding : Backend | PHP Native mysqli',
+                    'thumbnail'     : ['portfolio/run1.png', 'portfolio/run2.png'],
+                    'large'         : ['portfolio/run1.png', 'portfolio/run2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'https://run.id/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Open Government Indonesia',
+                    'description'   : 'Coding : Backend | Codeigniter Framework',
+                    'thumbnail'     : ['portfolio/ogi1.png', 'portfolio/ogi2.png'],
+                    'large'         : ['portfolio/ogi1.png', 'portfolio/ogi2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://opengovindonesia.org', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Coffee Bean Indonesia',
+                    'description'   : 'Coding : Backend | Laravel Framework',
+                    'thumbnail'     : ['portfolio/cf1.png', 'portfolio/cf2.png'],
+                    'large'         : ['portfolio/cf1.png', 'portfolio/cf2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://coffeebean.co.id/sites/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Hushpuppies Asia',
+                    'description'   : 'Coding : Backend | Laravel Framework',
+                    'thumbnail'     : ['portfolio/hp1.png', 'portfolio/hp2.png'],
+                    'large'         : ['portfolio/hp1.png', 'portfolio/hp2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://www.hushpuppies.sg/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Obermain',
+                    'description'   : 'Coding : Backend | Laravel Framework',
+                    'thumbnail'     : ['portfolio/ob1.png', 'portfolio/ob2.png'],
+                    'large'         : ['portfolio/ob1.png', 'portfolio/ob2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://www.obermain.com/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Melanox',
+                    'description'   : 'Coding : Backend | Wordpress',
+                    'thumbnail'     : ['portfolio/mx1.png', 'portfolio/mx2.png'],
+                    'large'         : ['portfolio/mx1.png', 'portfolio/mx2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://www.melanox.id/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Corporate']
+                },
+                {
+                    'title'         : 'Helpﬁt.id',
+                    'description'   : 'Coding : Laravel Framework | Midtrans payment gateway',
+                    'thumbnail'     : ['portfolio/fit1.png', 'portfolio/fit2.png'],
+                    'large'         : ['portfolio/fit1.png', 'portfolio/fit2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://helpﬁt.id/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Applications']
+                },
+                {
+                    'title'         : 'Zaxaa.com',
+                    'description'   : 'Coding : Illustrator & Frontend | Codeigniter Framework',
+                    'thumbnail'     : ['portfolio/zx1.png', 'portfolio/zx2.png'],
+                    'large'         : ['portfolio/zx1.png', 'portfolio/zx2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://zaxaa.com/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Applications']
+                },
+                {
+                    'title'         : '1minutesites',
+                    'description'   : 'Coding : Illustrator & Frontend | Codeigniter Framework',
+                    'thumbnail'     : ['portfolio/1ms1.png', 'portfolio/1ms2.png'],
+                    'large'         : ['portfolio/1ms1.png', 'portfolio/1ms2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'http://www.1minutesites.com/', 'new_window' : true }
+                    ],
+                    'tags'          : ['Applications']
+                },
+                {
+                    'title'         : 'Hushpuppies E-membercard',
+                    'description'   : 'Coding : Design & Frontend | Android SDK & iOS xcode ',
+                    'thumbnail'     : ['portfolio/hpapp1.png', 'portfolio/hpapp2.png'],
+                    'large'         : ['portfolio/hpapp1.png', 'portfolio/hpapp2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'https://play.google.com/store/apps/details?id=eizougraphic.sintret.hushpuppies', 'new_window' : true }
+                    ],
+                    'tags'          : ['Applications']
+                },
+                {
+                    'title'         : 'Livewell global',
+                    'description'   : 'Coding : Design & Frontend | ionic',
+                    'thumbnail'     : ['portfolio/lw1.png', 'portfolio/lw2.png'],
+                    'large'         : ['portfolio/lw1.png', 'portfolio/lw2.png'],
+                    'img_title'     : ['Layout 1 ', 'Layout 2'],
+                    'button_list'   :
+                    [
+                        { 'title':'Links', 'url' : 'https://play.google.com/store/apps/details?id=com.cic.livewellglobal', 'new_window' : true }
+                    ],
+                    'tags'          : ['Applications']
+                },
+            
+            ]
+        });
+    });
 	</script>
   </body>
 </html>
