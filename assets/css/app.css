@@ -1,0 +1,21 @@
+* {
+    cursor: none;
+}
+.inner-cursor {
+    position: fixed;
+    left: 10px;
+    width: 74px;
+    height: 74px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(37, 99, 235);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: none;
+    mix-blend-mode: difference;
+}
+.inner-cursor.grow {
+    width: 74px;
+    height: 74px;
+    background-color: rgba(5, 150, 105);
+}
