@@ -30,4 +30,15 @@ $(document).ready(function () {
             innerCursor.classList.remove("grow");
         });
     });
+    // parallax
+    var imageParallax = document.getElementsByClassName("img-parallax");
+    new simpleParallax(imageParallax, {
+        overflow: true,
+        scale: "2.0",
+    });
+    var sectionParallax = document.getElementsByClassName("section-parallax");
+    new simpleParallax(sectionParallax, {
+        overflow: true,
+        scale: "1.5",
+    });
 });

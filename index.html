@@ -38,30 +38,190 @@
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <link rel="stylesheet" href="assets/css/app.css">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="assets/img/logo.svg">
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+
     </head>
-    <body class="bg-black">
-        <section class="flex h-screen text-center bg-gradient-to-r from-red-500 via-transparent to-red-500" id="intro">
-           <div class="grid justify-items-center align-middle m-auto">
-               <div>
-                    <div class="animate__animated animate__fadeInDown">
-                        <img src="./assets/img/avatar.gif" alt="Andry Muharyo" draggable="false" class="w-72 mx-auto rounded-full"/>
+    <body class="bg-gray-900">
+        <header class="am-header">
+            <nav class="fixed top-0 left-0 right-0 w-full pb-5 sm:pb-5 z-20">
+                <div class="max-w-12xl mx-auto px-2 sm:px-6 lg:px-8 py-5">
+                  <div class="relative flex items-center justify-between h-16">
+                    <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
+                      <div class="flex-shrink-0 flex items-center animate__animated animate__fadeInLeft">
+                        <img class="block h-12 w-auto" src="./assets/img/logo.svg" draggable="false" alt="Andry Muharyo">
+                      </div>
+                      <div class="hidden sm:block sm:ml-6 float-right animate__animated animate__fadeInRight">
+                        <div class="flex space-x-6">
+                            <a href="#about" draggable="false" class="text-gray-300 hover:text-white px-6 py-6 text-xl">Profile</a>
+                            <a href="#skills" draggable="false" class="text-gray-300 hover:text-white px-6 py-6 text-xl">Skills</a>
+                        </div>
+                      </div>
                     </div>
-                    <h1 class="my-5 text-7xl text-white animate__animated animate__fadeInUp">Andry Muharyo</h1>
-                    <h3 class="my-3 text-2xl text-white animate__animated animate__fadeInUp">Sr. Full Stack Web Developer</h3>
-                    <br/>
-                    <div class="flex justify-center gap-10 text-3xl animate__animated animate__fadeInUp text-white">
-                        <div><a class="hover:text-gray-400" href="mailto:andrymuharyo@gmail.com" target="_blank"><i class="icon-envelope"></i></a></div>
-                        <div><a class="hover:text-gray-400" href="https://www.linkedin.com/in/andrymuharyo" target="_blank"><i class="icon-social-linkedin"></i></a></div>
-                        <div><a class="hover:text-gray-400" href="https://github.com/andrymuharyo" target="_blank"><i class="icon-social-github"></i></a></div>
+                  </div>
+                </div>
+              
+                <!-- Mobile menu, show/hide based on menu state. -->
+                <div class="sm:hidden" id="mobile-menu">
+                  <div class="space-y-1 text-center">
+                        <a href="#about" draggable="false" class="text-gray-300 hover:text-white px-4 py-2 text-md font-medium" >Profile</a>
+                        <a href="#skills" draggable="false" class="text-gray-300 hover:text-white px-4 py-2 text-md font-medium">Skills</a>
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main>
+            <!-- intro -->
+            <section class="flex h-screen text-center" id="home">
+                <div class="grid justify-items-center align-middle m-auto">
+                    <div>
+                         <div  data-aos="fade-down">
+                             <img src="./assets/img/avatar.gif" alt="Andry Muharyo" draggable="false" class="w-48 sm:w-72 mx-auto rounded-full img-parallax relative md:top-4">
+                         </div>
+                         <h1 data-aos="fade-up" class="my-5 text-4xl sm:text-7xl text-white">Andry Muharyo</h1>
+                         <h3 data-aos="fade-up" class="my-3 text-xl sm:text-2xl text-white">Sr. Full Stack Web Developer</h3>
+                         <br>
+                         <div data-aos="fade-up" class="flex justify-center gap-10 text-3xl text-white">
+                             <div><a class="hover:text-gray-400" draggable="false" href="mailto:andrymuharyo@gmail.com" target="_blank"><i class="icon-envelope"></i></a></div>
+                             <div><a class="hover:text-gray-400" draggable="false" href="https://www.linkedin.com/in/andrymuharyo" target="_blank"><i class="icon-social-linkedin"></i></a></div>
+                             <div><a class="hover:text-gray-400" draggable="false" href="https://github.com/andrymuharyo" target="_blank"><i class="icon-social-github"></i></a></div>
+                         </div>
                     </div>
-               </div>
-           </div>
-        </section>
+                </div>
+             </section>
+             <!-- about -->
+             <section class="flex h-screen text-center" id="about">
+                 <div class="grid justify-items-center align-middle m-auto">
+                     <div data-aos="fade-up" class="max-w-7xl text-center text-white section-parallax">
+                            <p class="text-9xl leading-tight mb-4">I'm an Indonesian Sr full stack web developer</p>
+                     </div>
+                 </div>
+              </section>
+             <!-- skills -->
+             <section class="flex h-screen text-center" id="skills">
+                <div class="grid justify-items-center align-middle m-auto">
+                    <div class="flex flex-flow-col grid-cols-2 grid-rows-2 gap-12 section-parallax">
+                        <div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">HTML</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-80 pr-2 font-bold"> 90%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">CSS</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-80 pr-2 font-bold"> 90%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">SASS / LESS</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-80 pr-2 font-bold"> 90%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Javascript</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-72 pr-2 font-bold"> 80%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">PHP</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-72 pr-2 font-bold"> 80%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Laravel (PHP)</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-80 pr-2 font-bold"> 90%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Livewire (Laravel & Alpine.js)</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-64 pr-2 font-bold"> 70%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Next.js (React)</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-40 pr-2 font-bold"> 40%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Adobe Photoshop</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-60 pr-2 font-bold"> 70%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Adobe Illustrator</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-52 pr-2 font-bold"> 60%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                            <div class="block text-left mb-10" data-aos="fade-up">
+                                <div data-aos="fade-left" class="text-xl text-white mb-3">Figma</div>
+                                <div class="text-white relative">
+                                    <div class="overflow-hidden block relative border-4 border-indigo-500 bg-gray-900 h-8 w-96 z-20">
+                                        <div data-aos="fade-right" class="absolute left-0 top-0 bg-yellow-500 text-white text-right h-6 w-60 pr-2 font-bold"> 70%</div>
+                                    </div>
+                                    <div class="block z-10 absolute -left-2 -bottom-2 bg-black h-8 w-96"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+              </section>
+        </main>
         <div class="inner-cursor"></div>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
         <script src="assets/js/app.js"></script>
     </body>
 </html>
