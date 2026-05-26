@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono:  "Bitcount Grid Single", system-ui;
+
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
+}
+html {
+  @apply transition-all duration-500 ease-in-out;
+}
+body {
+  @apply antialiased scroll-smooth;
+}
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-black ;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+}
+
+@media (pointer: fine) {
+  html, body, a, button, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+
+.fx-cursor-dot,
+.fx-cursor-circle {
+  @apply fixed pointer-events-none z-[9999] rounded-full;
+  transform: translate(-50%, -50%);
+  will-change: left, top, transform;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.fx-cursor-dot {
+  @apply bg-white w-3 h-3;
+}
+
+.fx-cursor-circle {
+  @apply border border-white bg-mist-800/50 h-12 w-12;
+  &.is-hovered {
+    transform: translate(-50%, -50%) scale(1.6);
+    @apply border-0 bg-primary/50 invert;
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  @apply text-primary dark:text-mist-100 text-shadow-(--custom-shadow-light) dark:text-shadow-(--custom-shadow-dark);
+}
+:root {
+  --custom-shadow-dark: 0px 0px 40px rgba(147, 11, 244, 1);
+  --custom-shadow-light: 0px 0px 40px rgba(0, 0, 0, 1);
+}
+
+.has-wavy-underline {
+  @apply decoration-wavy;
+}
