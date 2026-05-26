@@ -6,7 +6,7 @@ import AppHero from '~/components/contents/AppHero.vue'
 import AppSkill from '~/components/contents/AppSkill.vue'
 import AppPortfolio from '~/components/contents/AppPortfolio.vue'
 import AppContact from '~/components/contents/AppContact.vue'
-  
+
 gsap.registerPlugin(ScrollToPlugin)
 
 const mainRef = ref<HTMLElement | null>(null)
@@ -134,7 +134,10 @@ provide('sections', sections)
 </script>
 
 <template>
-  <div ref="mainRef" class="h-screen overflow-y-auto select-none">
+  <div
+    ref="mainRef"
+    class="h-screen overflow-y-auto select-none"
+  >
     <AppHero id="home" />
     <AppAbout id="about" />
     <AppSkill id="skill" />

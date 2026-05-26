@@ -3,21 +3,21 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@nuxt/image',
+    '@nuxt/image'
   ],
-  colorMode: {
-    disableTransition: false
+  devtools: {
+    enabled: true
   },
   app: {
     head: {
       htmlAttrs: { class: 'transition-all duration-500 ease-in-out' }
     }
   },
-  devtools: {
-    enabled: true
-  },
 
   css: ['~/assets/css/main.css'],
+  colorMode: {
+    disableTransition: false
+  },
 
   routeRules: {
     '/': { prerender: true }

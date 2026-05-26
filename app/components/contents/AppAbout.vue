@@ -101,14 +101,14 @@ onMounted(() => {
         ref="sectionRef"
         :class="isImageVisible ? '' : '!opacity-0'"
       >
-          <NuxtImg
-            src="./assets/bg-about.jpg"
-            width="400"
-            height="400"
-            alt="Illustration"
-            class="rounded-lg h-20 w-20 lg:h-full lg:w-full"
-            loading="lazy"
-          />
+        <NuxtImg
+          src="./assets/bg-about.jpg"
+          width="400"
+          height="400"
+          alt="Illustration"
+          class="rounded-lg h-20 w-20 lg:h-full lg:w-full"
+          loading="lazy"
+        />
       </div>
     </UPageSection>
   </section>
