@@ -59,9 +59,6 @@ const playContactLinksAnimation = () => {
 }
 
 onMounted(() => {
-  // Find the main scroll container
-  const scrollContainer = document.querySelector('.h-screen.overflow-y-auto') as HTMLElement | null
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -92,36 +89,58 @@ onMounted(() => {
 
 <template>
   <div
-    ref="sectionRef"
     :id="id || 'contact'"
-    class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
+    ref="sectionRef"
     :class="isSectionVisible ? 'bg-mist-100 dark:bg-mist-900' : 'bg-cyan-100 dark:bg-cyan-900'"
+    class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
   >
     <div class="flex flex-col items-center justify-center h-full px-4 sm:px-6">
-      <div 
-          ref="descriptionRef"
-          :class="isDescriptionVisible ? '' : '!opacity-0'" 
-          class="space-y-6 mx-auto">
-        <UPageSection 
-          title="Get In Touch"
-          description="I'm currently available for freelance work and open to new opportunities. If you have a project in mind or would like to discuss potential collaborations, feel free to reach out!"
+      <div
+        ref="descriptionRef"
+        :class="isDescriptionVisible ? '' : '!opacity-0'"
+        class="space-y-6 mx-auto"
+      >
+        <UPageSection
           :ui="{ container: 'flex lg:items-start justify-center lg:!pb-10', description: 'mt-0 lg:mt-6' }"
+          description="I'm currently available for freelance work and open to new opportunities. If you have a project in mind or would like to discuss potential collaborations, feel free to reach out!"
+          title="Get In Touch"
         />
       </div>
       <div class="flex items-center gap-14">
         <div :ref="(el) => setContactItemRef(el as HTMLDivElement | null, 0)">
-          <ULink href="mailto:andrymuharyo@gmail.com" target="_blank" class="text-red-500">
-            <UIcon name="i-lucide-mail" class="w-8 h-8" />
+          <ULink
+            class="text-red-500"
+            href="mailto:andrymuharyo@gmail.com"
+            target="_blank"
+          >
+            <UIcon
+              class="w-8 h-8"
+              name="i-lucide-mail"
+            />
           </ULink>
         </div>
         <div :ref="(el) => setContactItemRef(el as HTMLDivElement | null, 1)">
-          <ULink href="https://www.linkedin.com/in/andrymuharyo/" target="_blank" class="text-blue-500">
-            <UIcon name="i-lucide-linkedin" class="w-8 h-8" />
+          <ULink
+            class="text-blue-500"
+            href="https://www.linkedin.com/in/andrymuharyo/"
+            target="_blank"
+          >
+            <UIcon
+              class="w-8 h-8"
+              name="i-lucide-linkedin"
+            />
           </ULink>
         </div>
         <div :ref="(el) => setContactItemRef(el as HTMLDivElement | null, 2)">
-          <ULink href="https://wa.me/6281319820707" target="_blank" class="text-green-500">
-            <UIcon name="i-lucide-message-circle-check" class="w-8 h-8" />
+          <ULink
+            class="text-green-500"
+            href="https://wa.me/6281319820707"
+            target="_blank"
+          >
+            <UIcon
+              class="w-8 h-8"
+              name="i-lucide-message-circle-check"
+            />
           </ULink>
         </div>
       </div>

@@ -92,7 +92,10 @@ onMounted(() => {
   <div class="fixed bottom-0 z-50 w-full">
     <UHeader :ui="{ root: 'border-0 border-t border-primary bg-mist-100/50 dark:bg-mist-900/75', container: 'lg:max-w-[90%] max-w-full' }">
       <template #title>
-        <div ref="menuRef" class="w-full opacity-0">
+        <div
+          ref="menuRef"
+          class="w-full opacity-0"
+        >
           <nav class="flex items-center gap-8">
             <button
               v-for="item in menuItems"
@@ -109,7 +112,10 @@ onMounted(() => {
       </template>
 
       <template #right>
-        <div ref="colorModeRef" class="opacity-0">
+        <div
+          ref="colorModeRef"
+          class="opacity-0"
+        >
           <UColorModeButton />
         </div>
       </template>

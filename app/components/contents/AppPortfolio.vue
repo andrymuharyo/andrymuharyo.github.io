@@ -72,7 +72,7 @@ const projects = [
   {
     image: './assets/portfolios/runid.png',
     title: 'RunID Race Management',
-    techStack: ['PHP','Bootstrap'],
+    techStack: ['PHP', 'Bootstrap'],
     description: 'RunID Race Management established based on that simple reasons, to make running a healthy lifestyle with fun & happy faces in every race we’ve made.',
     link: 'https://run.id'
   },
@@ -110,8 +110,6 @@ const playPortfolioAnimation = () => {
 }
 
 onMounted(() => {
-  const scrollContainer = document.querySelector('.h-screen.overflow-y-auto') as HTMLElement | null
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -141,10 +139,10 @@ onMounted(() => {
 
 <template>
   <div
-    ref="sectionRef"
     :id="id || 'portfolio'"
-    class="relative overflow-hidden min-h-screen transition-all duration-500 ease-in-out"
+    ref="sectionRef"
     :class="isSectionVisible ? 'bg-cyan-100 dark:bg-cyan-900' : 'bg-mist-100 dark:bg-mist-900'"
+    class="relative overflow-hidden min-h-screen transition-all duration-500 ease-in-out"
   >
     <div class="flex flex-col lg:flex-row items-center justify-center h-screen px-4 sm:px-6 py-14 sm:py-16">
       <div
@@ -153,21 +151,21 @@ onMounted(() => {
         class="space-y-6 mx-auto text-left max-w-lg"
       >
         <UPageSection
-          title="My Portfolio"
+          :ui="{ container: 'flex lg:items-start justify-start !pr-0', title: '!text-left', description: '!text-left mt-0 lg:mt-6 text-mist-800 dark:text-mist-100' }"
           description="A curated collection of projects that blends visual storytelling, responsive interaction, and practical development craft. Click any card to explore the project details."
-          :ui="{ container: 'flex lg:items-start justify-start !pr-0', title : '!text-left', description: '!text-left mt-0 lg:mt-6 text-mist-800 dark:text-mist-100' }"
+          title="My Portfolio"
         />
       </div>
 
       <div class="lg:mt-10 w-full overflow-hidden">
         <ClientOnly>
           <Swiper
-            :modules="[EffectCoverflow]"
-            effect="coverflow"
-            :grab-cursor="true"
+            :breakpoints="{
+              640: { slidesPerView: 1.7, spaceBetween: 24 },
+              1024: { slidesPerView: 2.6, spaceBetween: 28 },
+              1280: { slidesPerView: 3.2, spaceBetween: 32 }
+            }"
             :centered-slides="false"
-            :slides-per-view="2"
-            :space-between="32"
             :coverflow-effect="{
               rotate: 0,
               stretch: 0,
@@ -175,12 +173,12 @@ onMounted(() => {
               modifier: 1.2,
               slideShadows: false
             }"
-            :breakpoints="{
-              640: { slidesPerView: 1.7, spaceBetween: 24 },
-              1024: { slidesPerView: 2.6, spaceBetween: 28 },
-              1280: { slidesPerView: 3.2, spaceBetween: 32 }
-            }"
+            :grab-cursor="true"
+            :modules="[EffectCoverflow]"
+            :slides-per-view="2"
+            :space-between="32"
             class="portfolio-swiper !overflow-visible"
+            effect="coverflow"
           >
             <SwiperSlide
               v-for="(project, index) in projects"
@@ -188,21 +186,30 @@ onMounted(() => {
               class="portfolio-slide"
             >
               <button
-                type="button"
                 class="group w-full text-left"
+                type="button"
                 @click="openProject(project)"
               >
-                <div class="relative aspect-[4/5] overflow-hidden rounded-sm bg-mist-100 dark:bg-mist-800 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.42)] transition-all duration-300 group-hover:-tranmist-y-1">
+                <div
+                  class="relative aspect-[4/5] overflow-hidden rounded-sm bg-mist-100 dark:bg-mist-800 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.42)] transition-all duration-300 group-hover:-tranmist-y-1"
+                >
                   <NuxtImg
-                    :src="project.image"
                     :alt="project.title"
+                    :src="project.image"
                     class="h-full w-full object-cover object-top-left transition-transform duration-500 group-hover:scale-105"
                   />
 
-                  <div class="absolute inset-0 bg-gradient-to-t from-mist-950/70 via-mist-950/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div class="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-mist-950/70 via-mist-950/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <div
+                    class="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 opacity-0 transition-all duration-300 group-hover:opacity-100"
+                  >
                     <span class="rounded-full w-20 h-20 bg-primary/50 text-white text-center items-center gap-2 flex">
-                      <UIcon name="i-lucide-plus" class="mx-auto w-10 h-10 font-light" />
+                      <UIcon
+                        class="mx-auto w-10 h-10 font-light"
+                        name="i-lucide-plus"
+                      />
                     </span>
                     <span class="text-sm font-medium text-white/90">
                       {{ index + 1 }}/{{ projects.length }}
@@ -211,7 +218,9 @@ onMounted(() => {
                 </div>
 
                 <div class="p-6">
-                  <h3 class="text-xl font-semibold text-mist-900 dark:text-white">{{ project.title }}</h3>
+                  <h3 class="text-xl font-semibold text-mist-900 dark:text-white">
+                    {{ project.title }}
+                  </h3>
                   <p class="mt-2 text-mist-600 dark:text-mist-300 hidden lg:block">
                     {{ project.description.slice(0, 100) }}{{ project.description.length > 100 ? '...' : '' }}
                   </p>
@@ -228,26 +237,29 @@ onMounted(() => {
 
     <UModal
       v-model:open="isModalOpen"
-      fullscreen
+      :close="{
+        color: 'primary',
+        variant: 'outline',
+        class: 'rounded-full'
+      }"
       :ui="{
         content: 'max-w-[50%]',
         body: 'p-0',
         header: 'border-b border-default',
         title: 'text-xl font-semibold'
       }"
-      :close="{
-        color: 'primary',
-        variant: 'outline',
-        class: 'rounded-full'
-      }"
+      fullscreen
     >
-      <template v-if="activeProject" #body>
+      <template
+        v-if="activeProject"
+        #body
+      >
         <div class="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="p-4 sm:p-6">
             <div class="overflow-hidden bg-mist-100 dark:bg-mist-800">
               <NuxtImg
-                :src="activeProject.image"
                 :alt="activeProject.title"
+                :src="activeProject.image"
                 class="h-full w-full object-cover"
               />
             </div>
@@ -256,14 +268,18 @@ onMounted(() => {
           <div class="flex flex-col justify-between p-4 sm:p-6 sm:border-l border-default">
             <div class="space-y-5">
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Project title</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Project title
+                </p>
                 <p class="mt-2 text-base font-semibold text-mist-900 dark:text-white">
                   {{ activeProject.title }}
                 </p>
               </div>
 
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Project Tech Stack</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Project Tech Stack
+                </p>
                 <div class="mt-3 flex flex-wrap gap-2">
                   <span
                     v-for="tech in activeProject.techStack"
@@ -276,14 +292,18 @@ onMounted(() => {
               </div>
 
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Description</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Description
+                </p>
                 <p class="mt-2 text-sm leading-6 text-mist-600 dark:text-mist-300">
                   {{ activeProject.description }}
                 </p>
               </div>
 
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Project Link</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Project Link
+                </p>
                 <p class="mt-2 break-all text-sm text-mist-700 dark:text-mist-200">
                   {{ activeProject.link }}
                 </p>
@@ -293,12 +313,12 @@ onMounted(() => {
             <div class="mt-6">
               <UButton
                 :to="activeProject.link"
-                target="_blank"
-                variant="link"
                 class="p-0"
+                color="primary"
                 icon="i-lucide-external-link"
                 label="Open Project"
-                color="primary"
+                target="_blank"
+                variant="link"
               />
             </div>
           </div>

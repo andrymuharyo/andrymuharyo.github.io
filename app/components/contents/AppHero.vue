@@ -65,16 +65,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :id="id || 'home'" class="relative overflow-hidden h-screen">
+  <div
+    :id="id || 'home'"
+    class="relative overflow-hidden h-screen"
+  >
     <AppHeader />
     <span class="absolute inset-x-0 left-0 right-0 bottom-0 top-0 bg-mist-100/70 dark:bg-black/70 w-screen h-screen z-10" />
     <div class="absolute left-0 right-0 w-full h-full">
-      <div ref="heroBgRef" class="opacity-0 w-full h-full">
+      <div
+        ref="heroBgRef"
+        class="opacity-0 w-full h-full"
+      >
         <NuxtImg
-        alt="hero"
-        class="w-full h-full object-cover object-right lg:object-center"
-        src="./assets/bg-hero.jpg"
-      />
+          alt="hero"
+          class="w-full h-full object-cover object-right lg:object-center"
+          src="./assets/bg-hero.jpg"
+        />
       </div>
     </div>
     <div
