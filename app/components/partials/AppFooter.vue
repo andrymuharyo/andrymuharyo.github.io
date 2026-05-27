@@ -90,22 +90,27 @@ onMounted(() => {
 
 <template>
   <div class="fixed bottom-0 z-50 w-full">
-    <UHeader :ui="{ root: 'border-0 border-t border-primary bg-mist-100/50 dark:bg-mist-900/75', container: 'lg:max-w-[90%] max-w-full' }">
+    <UHeader
+      :ui="{ root: 'border-0 border-t border-primary bg-mist-100/50 dark:bg-mist-900/75', container: 'lg:max-w-[90%] max-w-full' }"
+    >
       <template #title>
         <div
           ref="menuRef"
           class="w-full opacity-0"
         >
-          <nav class="flex items-center gap-8">
+          <nav class="flex items-center gap-8  overflow-x-auto lg:overflow-x-visible">
             <button
               v-for="item in menuItems"
               :key="item.id"
-              type="button"
-              class="transition-all duration-500 ease-in-out font-bold lowercase cursor-pointer hover:text-primary text-lg"
               :class="activeSection === item.id ? 'text-primary' : 'text-mist-700 dark:text-muted'"
+              class="menu-flip transition-colors duration-500 ease-in-out font-bold lowercase cursor-pointer hover:text-primary text-lg"
+              type="button"
               @click="scrollToSection(item.id)"
             >
-              {{ item.label }}
+              <span class="menu-flip__inner">
+                <span class="menu-flip__face">{{ item.label }}</span>
+                <span class="menu-flip__face menu-flip__face--back">{{ item.label }}</span>
+              </span>
             </button>
           </nav>
         </div>
@@ -122,4 +127,3 @@ onMounted(() => {
     </UHeader>
   </div>
 </template>
-app/components/contents/AppPortfolio.vue

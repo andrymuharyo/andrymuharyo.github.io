@@ -151,7 +151,7 @@ onMounted(() => {
         class="space-y-6 mx-auto text-left max-w-lg"
       >
         <UPageSection
-          :ui="{ container: 'flex lg:items-start justify-start !pr-0', title: '!text-left', description: '!text-left mt-0 lg:mt-6 text-mist-800 dark:text-mist-100' }"
+          :ui="{ container: 'flex lg:items-start justify-start !pr-0', title: '!text-left', description: 'mt-3 lg:mt-6 text-xl !text-left text-mist-800 dark:text-mist-100' }"
           description="A curated collection of projects that blends visual storytelling, responsive interaction, and practical development craft. Click any card to explore the project details."
           title="My Portfolio"
         />
@@ -161,9 +161,9 @@ onMounted(() => {
         <ClientOnly>
           <Swiper
             :breakpoints="{
-              640: { slidesPerView: 1.7, spaceBetween: 24 },
-              1024: { slidesPerView: 2.6, spaceBetween: 28 },
-              1280: { slidesPerView: 3.2, spaceBetween: 32 }
+              640: { slidesPerView: 1.7, spaceBetween: 10, centeredSlides: true },
+              1024: { slidesPerView: 2.6, spaceBetween: 28, centeredSlides: true },
+              1280: { slidesPerView: 3.2, spaceBetween: 32, centeredSlides: true }
             }"
             :centered-slides="false"
             :coverflow-effect="{
@@ -174,9 +174,8 @@ onMounted(() => {
               slideShadows: false
             }"
             :grab-cursor="true"
+            :loop="true"
             :modules="[EffectCoverflow]"
-            :slides-per-view="2"
-            :space-between="32"
             class="portfolio-swiper !overflow-visible"
             effect="coverflow"
           >
@@ -191,7 +190,7 @@ onMounted(() => {
                 @click="openProject(project)"
               >
                 <div
-                  class="relative aspect-[4/5] overflow-hidden rounded-sm bg-mist-100 dark:bg-mist-800 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.42)] transition-all duration-300 group-hover:-tranmist-y-1"
+                  class="relative aspect-[4/5] max-h-[400px] lg:max-h-full overflow-hidden rounded-sm bg-mist-100 dark:bg-mist-800 shadow-[0_24px_70px_-28px_rgba(15,23,42,0.42)] transition-all duration-300 group-hover:-tranmist-y-1"
                 >
                   <NuxtImg
                     :alt="project.title"
@@ -203,11 +202,11 @@ onMounted(() => {
                     class="absolute inset-0 bg-gradient-to-t from-mist-950/70 via-mist-950/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
                   <div
-                    class="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 opacity-0 transition-all duration-300 group-hover:opacity-100"
+                    class="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3"
                   >
-                    <span class="rounded-full w-20 h-20 bg-primary/50 text-white text-center items-center gap-2 flex">
+                    <span class="rounded-full w-10 h-10 bg-primary/50 text-white text-center items-center gap-2 flex">
                       <UIcon
-                        class="mx-auto w-10 h-10 font-light"
+                        class="mx-auto w-5 h-5 font-light"
                         name="i-lucide-plus"
                       />
                     </span>
@@ -217,14 +216,14 @@ onMounted(() => {
                   </div>
                 </div>
 
-                <div class="p-6">
+                <div class="mt-2 lg:mt-5 space-y-1 lg:space-y-4">
                   <h3 class="text-xl font-semibold text-mist-900 dark:text-white">
                     {{ project.title }}
                   </h3>
-                  <p class="mt-2 text-mist-600 dark:text-mist-300 hidden lg:block">
+                  <p class="text-mist-600 dark:text-mist-300 hidden lg:block">
                     {{ project.description.slice(0, 100) }}{{ project.description.length > 100 ? '...' : '' }}
                   </p>
-                  <p class="mt-3 text-primary">
+                  <p class="text-primary">
                     {{ project.techStack.join(' · ') }}
                   </p>
                 </div>
@@ -243,7 +242,7 @@ onMounted(() => {
         class: 'rounded-full'
       }"
       :ui="{
-        content: 'max-w-[50%]',
+        content: 'max-w-full lg:max-w-[50%]',
         body: 'p-0',
         header: 'border-b border-default',
         title: 'text-xl font-semibold'

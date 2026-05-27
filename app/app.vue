@@ -32,6 +32,6 @@ useSeoMeta({
       <NuxtPage />
     </UMain>
     <AppFooter />
-    <CursorFx />
+    <CursorFx class="hidden lg:block" />
   </UApp>
 </template>

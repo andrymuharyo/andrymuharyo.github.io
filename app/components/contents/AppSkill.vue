@@ -210,14 +210,25 @@ const skillFacts = [
     :class="isSectionVisible ? 'bg-mist-100 dark:bg-mist-900' : 'bg-indigo-200 dark:bg-indigo-900'"
     class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
   >
+    <div class="absolute left-0 right-0 w-full h-full">
+      <div
+        class="opacity-0 w-full h-full"
+      >
+        <NuxtImg
+          alt="skill"
+          class="w-full h-full object-cover object-right lg:object-center opacity-7 dark:opacity-2"
+          src="./assets/bg-skill.jpg"
+        />
+      </div>
+    </div>
     <div class="flex flex-col items-center justify-center h-full px-4 sm:px-6">
       <div
         ref="descriptionRef"
         :class="isDescriptionVisible ? '' : '!opacity-0'"
-        class="space-y-6 mx-auto"
+        class="space-y-6 lg:mx-auto"
       >
         <UPageSection
-          :ui="{ container: 'flex lg:items-start justify-center lg:!pb-10', description: 'mt-0 lg:mt-6' }"
+          :ui="{ container: 'flex lg:items-start justify-center lg:!pb-10', title: 'text-left lg:text-center', description: 'mt-3 lg:mt-6 text-xl text-left lg:text-center' }"
           description="With a strong foundation in web development, I specialize in creating dynamic and responsive websites using modern technologies. My expertise includes HTML, CSS, JavaScript, and popular frameworks like Laravel, Next.js and Nuxt.js. I am passionate about crafting seamless user experiences and delivering high-quality code that meets both client needs and industry standards."
           title="My Tech Skills"
         />
