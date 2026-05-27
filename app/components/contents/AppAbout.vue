@@ -77,24 +77,36 @@ onMounted(() => {
 <template>
   <section
     :id="id || 'about'"
-    class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
     :class="isSectionVisible ? 'bg-indigo-200 dark:bg-indigo-900' : 'bg-mist-100 dark:bg-mist-900'"
+    class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
   >
     <UPageSection
       :reverse="true"
+      :ui="{ container: 'flex items-center justify-center content-center h-screen', description: 'mt-3 lg:mt-6 text-xl ' }"
       orientation="horizontal"
       title="Everything you need to know about me"
-      :ui="{ container: 'flex items-center justify-center content-center h-screen', description: 'mt-0 lg:mt-6' }"
     >
       <template #description>
         <div
           ref="descriptionRef"
           :class="isDescriptionVisible ? '' : '!opacity-0'"
-          class="space-y-4 text-xl text-mist-700 dark:text-mist-300 overflow-y-auto max-h-[60vh] lg:overflow-y-visible"
+          class="space-y-4 text-mist-700 dark:text-mist-300"
         >
-          <p>I am a Senior Full-Stack Web Developer and Designer with +15 years of experience leveraging design to build impactful digital solutions. A 2006 Product Design graduate from Trisakti University, I specialize in combining creative design principles with robust web technologies to build dynamic, content-driven websites.</p>
-          <p>Driven by a passion for innovation, I developed a proprietary project methodology that spans <b>conceptualization, planning, modeling, detailing, and final execution</b>.</p>
-          <p>In addition to my development work, I share my expertise as an Ex-Associate Lecturer at LSPR Communication &amp; Business Institute (formerly STIKOM Jakarta), teaching Desktop Publishing with a focus on the creation and strategic planning of print and digital media.</p>
+          <p>
+            I am a Senior Full-Stack Web Developer and Designer with +15 years of experience leveraging design to build
+            impactful digital solutions. A 2006 Product Design graduate from Trisakti University, I specialize in
+            combining creative design principles with robust web technologies to build dynamic, content-driven
+            websites.
+          </p>
+          <p>
+            Driven by a passion for innovation, I developed a proprietary project methodology that spans <b>conceptualization,
+              planning, modeling, detailing, and final execution</b>.
+          </p>
+          <p>
+            In addition to my development work, I share my expertise as an Ex-Associate Lecturer at LSPR Communication
+            &amp; Business Institute (formerly STIKOM Jakarta), teaching Desktop Publishing with a focus on the creation
+            and strategic planning of print and digital media.
+          </p>
         </div>
       </template>
       <div
@@ -102,12 +114,12 @@ onMounted(() => {
         :class="isImageVisible ? '' : '!opacity-0'"
       >
         <NuxtImg
+          alt="Illustration"
+          class="rounded-lg h-full w-full hidden lg:block"
+          height="400"
+          loading="lazy"
           src="./assets/bg-about.jpg"
           width="400"
-          height="400"
-          alt="Illustration"
-          class="rounded-lg h-20 w-20 lg:h-full lg:w-full"
-          loading="lazy"
         />
       </div>
     </UPageSection>

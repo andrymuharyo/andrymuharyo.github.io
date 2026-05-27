@@ -94,6 +94,17 @@ onMounted(() => {
     :class="isSectionVisible ? 'bg-mist-100 dark:bg-mist-900' : 'bg-cyan-100 dark:bg-cyan-900'"
     class="relative overflow-hidden h-screen transition-all duration-500 ease-in-out"
   >
+    <div class="absolute left-0 right-0 w-full h-full">
+      <div
+        class="opacity-0 w-full h-full"
+      >
+        <NuxtImg
+          alt="skill"
+          class="w-full h-full object-cover object-right lg:object-center opacity-7 dark:opacity-2"
+          src="./assets/bg-contact.jpg"
+        />
+      </div>
+    </div>
     <div class="flex flex-col items-center justify-center h-full px-4 sm:px-6">
       <div
         ref="descriptionRef"
@@ -101,7 +112,7 @@ onMounted(() => {
         class="space-y-6 mx-auto"
       >
         <UPageSection
-          :ui="{ container: 'flex lg:items-start justify-center lg:!pb-10', description: 'mt-0 lg:mt-6' }"
+          :ui="{ container: 'flex lg:items-start justify-center lg:!pb-10', description: 'mt-3 lg:mt-6 text-xl ' }"
           description="I'm currently available for freelance work and open to new opportunities. If you have a project in mind or would like to discuss potential collaborations, feel free to reach out!"
           title="Get In Touch"
         />
