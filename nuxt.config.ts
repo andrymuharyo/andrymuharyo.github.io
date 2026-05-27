@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/image',
-    '@vercel/analytics'
+    '@vercel/analytics',
+    '@vercel/speed-insights'
   ],
   devtools: {
     enabled: true
